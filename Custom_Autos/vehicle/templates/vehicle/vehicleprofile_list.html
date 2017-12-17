@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block head_title %}Vehicle List {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<h1>Employee List</h1>
+<br/>
+<ul>
+    {% for make in object_list %}
+
+    <li><a href="{{ make.get_absolute_url }}">{{ make }}</a></li>
+
+    {% endfor %}
+
+
+</ul>
+
+{% endblock %}
