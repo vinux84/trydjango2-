@@ -1,5 +1,6 @@
 from django.db import models
 from .validators import validate_category
+from django.urls import reverse
 
 
 class VehicleProfile(models.Model):
@@ -15,4 +16,7 @@ class VehicleProfile(models.Model):
 
     def __str__(self):
         return self.make
+
+    def get_absolute_url(self):
+        return reverse("vehicle:detail", kwargs={"slug": self.slug})
 
