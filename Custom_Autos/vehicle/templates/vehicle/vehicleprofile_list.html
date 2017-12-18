@@ -7,9 +7,8 @@
 <ul>
     {% for object in object_list %}
 
-    <h3>{{object.make}}  {{object.model}}</h3>
+    <li><a href="{{ object.get_absolute_url }}">{{ object }}</a>
 
-    <li>Make: {{ object.make }}</li>
 
     <br/>
     {% endfor %}
@@ -18,3 +17,4 @@
 </ul>
 
 {% endblock %}
+

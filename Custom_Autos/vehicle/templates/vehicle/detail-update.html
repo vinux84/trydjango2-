@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block head_title %}Vehicle List | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<h1>Vehicle Details</h1>
+<br/>
+<ul>
+
+
+    <h3>{{object.make}}  {{object.model}}</h3>
+
+    <li>Make: {{ object.make }}</li>
+    <li>Model: {{ object.model }}</li>
+    <li>Sub Model: {{ object.sub_model }}</li>
+    <li>Year: {{ object.year }}</li>
+    <li>Color: {{ object.color }}</li>
+    <li>Type: {{ object.category }}</li>
+    <li>Created: {{ object.timestamp }}</li>
+    <li>Last Updated: {{ object.updated }}</li>
+
+    <br/>
+
+
+
+</ul>
+
+{% endblock %}

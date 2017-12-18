@@ -9,12 +9,15 @@ class VehicleListView(ListView):
 
 
 class VehicleUpdateView(UpdateView):
+    fields = '__all__'
     template_name = "vehicle/detail-update.html"
     queryset = VehicleProfile.objects.all()
 
 
-class VehicleDetailView(DetailView):
-    queryset = VehicleProfile.objects.all()
+
+
+# class VehicleDetailView(DetailView):
+#     queryset = VehicleProfile.objects.all()
 
     # def get_object(self, *args, **kwargs):
     #     pract_id = self.kwargs.get("pract_id")
