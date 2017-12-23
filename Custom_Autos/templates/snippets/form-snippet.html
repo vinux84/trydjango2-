@@ -1,0 +1,15 @@
+{% if form.errors.non_field_errors %}
+    {{ form.errors.non_field_errors }}
+{% endif %}
+
+
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<form action="{% url 'delete' pk=vehicleprofile.id %}" method="POST">
+  {% csrf_token %}
+    <a href="{% url 'delete' pk=vehicleprofile.id %}"><input type="submit" value="Delete" /></a>
+</form>
+

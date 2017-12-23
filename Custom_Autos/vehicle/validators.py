@@ -11,14 +11,15 @@ def validate_even(value):
 
 def validate_email(value):
     email = value
-    if ".edu" in email:
-        raise ValidationError("We do not accept edu emails")
+    if "@yahoo" in email:
+        raise ValidationError("We do not accept yahoo emails, This is not 2005")
 
 
-CATEGORIES = ["Car", "Truck", "SUV", "Van"]
+CATEGORIES = ["Car", "Truck", "Suv", "Van", "Minivan"]
 
 
 def validate_category(value):
     cat = value.capitalize()
     if not value in CATEGORIES and not cat in CATEGORIES:
         raise ValidationError(f"{value} is not a valid category")
+

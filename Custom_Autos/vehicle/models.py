@@ -1,11 +1,15 @@
 from django.db import models
-from .validators import validate_category
 from django.urls import reverse
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
+from .validators import validate_category
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
 
 
 class VehicleProfile(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     make = models.CharField(max_length=120)
     model = models.CharField(max_length=120)
     sub_model = models.CharField(max_length=120, blank=True)
@@ -28,9 +32,12 @@ class VehicleProfile(models.Model):
 
 
 def vehicleprofile_pre_save_receiver(sender, instance, *args, **kwargs):
+    instance.category = instance.category.capitalize()
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
 
 
 pre_save.connect(vehicleprofile_pre_save_receiver, sender=VehicleProfile)
+
+
 
